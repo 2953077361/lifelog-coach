@@ -11,6 +11,7 @@ def test_complete_wires_request_and_strips(monkeypatch):
         def __init__(self, **kwargs):
             captured["init"] = kwargs
 
+        # 嵌套类模拟 openai 客户端的 chat.completions.create 调用链。
         class chat:
             class completions:
                 @staticmethod

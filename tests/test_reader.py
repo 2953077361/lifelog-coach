@@ -4,6 +4,7 @@ import pytest
 
 from lifelog_coach import reader
 
+# 测试样本：包含前言、两个日期段落和一个区间外段落。
 SAMPLE = """# 2026-10 Logs
 
 preamble text

@@ -1,4 +1,4 @@
-"""Configuration loaded from the environment (with .env support)."""
+"""从环境变量加载的配置（支持 .env 文件）。"""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ DEFAULT_MODEL = "deepseek-chat"
 
 @dataclass(frozen=True)
 class Settings:
-    """LLM endpoint settings. Any OpenAI-compatible provider works."""
+    """LLM 接入配置。兼容 OpenAI 协议的任意服务商均可使用。"""
 
     api_key: str
     base_url: str
@@ -21,6 +21,7 @@ class Settings:
 
     @classmethod
     def from_env(cls) -> "Settings":
+        """读取环境变量构造配置，缺失时可回落到默认值。"""
         load_dotenv()
         api_key = os.getenv("OPENAI_API_KEY", "").strip()
         if not api_key:

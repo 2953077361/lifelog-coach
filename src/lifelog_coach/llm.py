@@ -1,4 +1,4 @@
-"""Thin wrapper over any OpenAI-compatible chat endpoint."""
+"""面向任意 OpenAI 兼容 chat 接口的轻量封装。"""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ from .config import Settings
 
 class LLM:
     def __init__(self, settings: Settings | None = None) -> None:
+        # 未显式传入配置时，自动从环境变量 / .env 读取。
         self.settings = settings or Settings.from_env()
         self._client = OpenAI(
             api_key=self.settings.api_key,
@@ -16,7 +17,7 @@ class LLM:
         )
 
     def complete(self, system: str, user: str) -> str:
-        """Send one chat request and return the assistant text."""
+        """发起一次 chat 请求并返回 assistant 的文本内容。"""
         resp = self._client.chat.completions.create(
             model=self.settings.model,
             messages=[

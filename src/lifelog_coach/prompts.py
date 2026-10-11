@@ -1,6 +1,6 @@
-"""Prompt templates for the judge / review commands.
+"""judge / review 两个命令的 prompt 模板。
 
-Keep these short and tunable: they are the product's "brain".
+保持简短可调：这是整个产品的“大脑”。
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ Judge: (1) the trend, (2) any red line broken (targets missed), \
 (3) the single most important thing to do tomorrow.
 Reply in markdown only. Be concise, direct, and cite the numbers."""
 
+# 周复盘复用同一套人设，只是结论粒度不同。
 REVIEW_SYSTEM = JUDGE_SYSTEM
 
 REVIEW_TEMPLATE = """This is my log material for the week:
@@ -30,8 +31,10 @@ Reply in markdown only."""
 
 
 def build_judge_prompt(content: str) -> str:
+    """用日志正文渲染单日评判的 user prompt。"""
     return JUDGE_TEMPLATE.format(content=content)
 
 
 def build_review_prompt(content: str) -> str:
+    """用日志正文渲染周复盘的 user prompt。"""
     return REVIEW_TEMPLATE.format(content=content)

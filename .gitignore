@@ -12,5 +12,15 @@ build/
 .pytest_cache/
 .ruff_cache/
 
+# frontend
+node_modules/
+web/dist/
+web/.vite/
+
+# ide / agent
+.idea/
+.vscode/
+.codebuddy/
+
 # os
 .DS_Store
