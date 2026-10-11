@@ -19,7 +19,7 @@
 前置：Python 3.10+ 与 Node 18+。
 
 ```bash
-git clone https://github.com/2953077361/lifelog-coach.git
+git clone https://github.com/drinkMornTea/lifelog-coach.git
 cd lifelog-coach
 
 npm install      # 下载前端依赖
