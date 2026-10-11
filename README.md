@@ -19,7 +19,7 @@ and what is the one thing to do tomorrow. This tool does exactly that.
 Requires Python 3.13+ and [uv](https://docs.astral.sh/uv/).
 
 ```bash
-git clone <your-fork-url> lifelog-coach
+git clone https://github.com/2953077361/lifelog-coach.git
 cd lifelog-coach
 uv venv
 uv pip install -e .
